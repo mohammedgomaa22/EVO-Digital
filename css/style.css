@@ -1,0 +1,172 @@
+
+
+@font-face {
+    font-family: mainFont;
+    src: url(./fonts/Somar-Regular.otf);
+}
+body {
+    font-family: mainFont, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: url(../data/background.png);
+}
+html {
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+}
+* {
+    box-sizing: border-box;
+}
+/* ----------------- */
+.main-title:hover {
+    color: white;
+    border: 2px solid white;
+    transition-delay: 0.5s;
+}
+.main-title::before,
+.main-title::after {
+    content: "";
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #165487;
+    transition: .7s;
+}
+.main-title::before {
+    left: -25px;
+}
+.main-title::after {
+    right: -25px;
+}
+.main-title:hover::before {
+    animation: move-left 0.5s linear forwards;
+    z-index: -1;
+}
+.main-title:hover::after {
+    animation: move-right 0.5s linear forwards;
+    z-index: -1;
+}
+/* ======================= */
+.link-header::after {
+    content: '';
+    z-index: -1;
+    background-color: hsla(0, 0%, 100%, 0.2);
+    position: absolute;
+    top: -50%;
+    bottom: -50%;
+    width: 1.5rem;
+    transform: translate3d(1100%, 0, 0) rotate(-35deg);
+}
+.link-header:hover::after {
+    transition: transform 0.45s ease-in-out;
+    transform: translate3d(-100%, 0, 0) rotate(-35deg);
+}
+/* Elements */
+
+/* Start Nav  */
+nav {
+    background: url(../data/navBack.png);
+}
+/* End Nav  */
+
+/* Start Header  */
+header {
+    height: calc(100vh - 80px);
+    .banner {
+        border-radius: 39% 61% 70% 30% / 30% 16% 84% 70%;
+    }
+
+}
+/* End Header  */
+/* Start Our Services  */
+.our_services .boxes {
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    .box .img::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        right: 0;
+        border-style: solid;
+        border-width: 0px 0px 170px 240px;
+        border-color: transparent transparent white transparent;
+        transition: 0.3s;
+    }
+    .box:hover .img::after {
+        border-width:0;
+    }
+    .box ul li::before {
+        font-family: "Font Awesome 6 Free";
+    }
+    .box:hover .content button a::after {
+        width: 100%;
+    }
+    .box:hover .content button a {
+        color: white;
+    }
+}
+
+/* End Our Services  */
+/* Start contact_us  */
+.contact_us {
+    background: url(../data/navBack.png);
+}
+/* End contact_us  */
+
+
+
+
+
+/* ********** Start Animation ********** */
+/* Main Title */
+@keyframes move-left {
+    50% {
+        left: 0;
+        height: 14px;
+        width: 14px;
+    }
+    100% {
+        left: 0;
+        width: 50%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+@keyframes move-right {
+    50% {
+        right: 0;
+        height: 14px;
+        width: 14px;
+    }
+    100% {
+        right: 0;
+        width: 60%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+/* ************************ */
+.animate-top-bottom {
+    animation: top-and-bottom 4s linear infinite;
+}
+@keyframes top-and-bottom {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(30px);
+    }
+}
+/* ********** End Animation ********** */
+
+
+
+
